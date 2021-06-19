@@ -5,12 +5,13 @@ import { LogInPage } from "../page-objects/log-in-page"
 import { MainTopBar } from "../page-objects/main-top-bar"
 import { SignUpPage } from "../page-objects/sign-up-page"
 
-describe("", () => {
-    const homePage = new HomePage()
-    const mainTopBar = new MainTopBar()
-    const signUpPage = new SignUpPage()
-    const logInPage = new LogInPage()
-    const base_app_url = Cypress.env("base_app_url")
+const homePage = new HomePage()
+const mainTopBar = new MainTopBar()
+const signUpPage = new SignUpPage()
+const logInPage = new LogInPage()
+const base_app_url = Cypress.env("base_app_url")
+
+describe("Home page smoke tests", () => {    
 
     beforeEach(() => { homePage.navigate() })
 
@@ -22,12 +23,10 @@ describe("", () => {
         mainTopBar.logInButton().should("exist")
     })
 
-
     it("validate click sign up opens", () => {
         homePage.signUpButton().click()       
         cy.url().should("be.equal", base_app_url + signUpPage.endpoint)
     })
-
 
     it("validate log in opens", () => {
         mainTopBar.logInButton().click()     
