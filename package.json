@@ -1,0 +1,23 @@
+{
+  "name": "sendcloud-test-automation",
+  "version": "1.0.0",
+  "description": "Test automation solution for Sendcloud's Crispy Succostash application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maticardenas/sendcloud-test-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maticardenas/sendcloud-test-automation/issues"
+  },
+  "homepage": "https://github.com/maticardenas/sendcloud-test-automation#readme",
+  "dependencies": {
+    "cypress": "^7.5.0"
+  }
+}
