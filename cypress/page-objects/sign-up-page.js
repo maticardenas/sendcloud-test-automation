@@ -2,6 +2,8 @@
 
 export class SignUpPage {
 
+    endpoint = "accounts/register/"
+
     usernameField() { return cy.get('#id_username') }
 
     passwordField() { return cy.get('#id_password1') }

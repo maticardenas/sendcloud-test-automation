@@ -1,31 +1,13 @@
 /// <reference types="cypress" />
+
 export class HomePage{
+
+    home_page_url = Cypress.env("base_app_url")
 
     signUpButton(){ return cy.get('.btn') }
 
-    logInButton(){ return cy.get('.navbar-right > li > a') }
-
-    allFeedsButton(){ return cy.get(':nth-child(1) > li > a') }
-
-    crispySuccostashButton() { return cy.get('.navbar-brand') } 
-
     navigate() {
-        cy.visit("http://localhost:8000/")
+        cy.visit(this.home_page_url)
     }
 
-    clickSignUp() {
-        this.signUpButton().click()
-    }
-
-    clickLogIn() {
-        this.logInButton().click()
-    }
-
-    clickAllFeeds() {
-        this.allFeedsButton().click()
-    }
-
-    clickCrispySuccostash() {
-        this.crispySuccostashButton().click()
-    }
 }

@@ -8,16 +8,4 @@ export class MainTopBar {
 
     crispySuccostashButton() { return cy.get('.navbar-brand') } 
 
-    clickLogIn() {
-        this.logInButton().click()
-    }
-
-    clickAllFeeds() {
-        this.allFeedsButton().click()
-    }
-
-    clickCrispySuccostash() {
-        this.crispySuccostashButton().click()
-    }
-
 }
