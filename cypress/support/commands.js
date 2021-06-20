@@ -24,13 +24,21 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import { LogInPage } from "../page-objects/log-in-page"
 import { SignUpPage } from "../page-objects/sign-up-page"
 
 const signUpPage = new SignUpPage()
+const logInPage = new LogInPage()
 
 Cypress.Commands.add("signup", (username, password) => {
     signUpPage.usernameField().type(username)
     signUpPage.passwordField().type(password)
     signUpPage.passwordConfirmationField().type(password)
     signUpPage.submitButton().click()
+})
+
+Cypress.Commands.add("login", (username, password) => {
+    logInPage.usernameField().type(username)
+    logInPage.passwordField().type(password)
+    logInPage.loginButton().click()
 })
