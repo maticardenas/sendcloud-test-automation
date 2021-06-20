@@ -9,7 +9,7 @@ const homePage = new HomePage()
 const mainTopBar = new MainTopBar()
 const signUpPage = new SignUpPage()
 const logInPage = new LogInPage()
-const base_app_url = Cypress.env("base_app_url")
+const base_app_url = Cypress.env("baseUrl")
 
 describe("Home page smoke tests", () => {    
 
@@ -25,12 +25,18 @@ describe("Home page smoke tests", () => {
 
     it("validate click sign up opens", () => {
         homePage.signUpButton().click()       
-        cy.url().should("be.equal", base_app_url + signUpPage.endpoint)
+        cy.url().should(
+            "be.equal",
+            `${base_app_url}${signUpPage.endpoint}`
+        )
     })
 
     it("validate log in opens", () => {
-        mainTopBar.logInButton().click()     
-        cy.url().should("be.equal", base_app_url + logInPage.endpoint)
+        mainTopBar.logInButton().click()  
+        cy.url().should(
+            "be.equal",
+            `${base_app_url}${logInPage.endpoint}`
+        )   
     })
 
 })

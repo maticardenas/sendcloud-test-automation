@@ -2,7 +2,7 @@
 
 export class HomePage{
 
-    home_page_url = Cypress.env("base_app_url")
+    home_page_url = Cypress.env("baseUrl")
 
     signUpButton(){ return cy.get('.btn') }
 
