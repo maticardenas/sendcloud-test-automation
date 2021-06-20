@@ -1,11 +1,18 @@
 
-
 export class MainTopBar {
 
-    logInButton(){ return cy.get('.navbar-right > li > a') }
+    logInButton(){ return cy.contains("Login") }
 
-    allFeedsButton(){ return cy.get(':nth-child(1) > li > a') }
+    logOutButton(){ return cy.contains("Logout") }
+
+    allFeedsButton(){ return cy.contains("All Feeds") }
+
+    myFeedsButton(){ return cy.contains("My Feeds") }
 
     crispySuccostashButton() { return cy.get('.navbar-brand') } 
+
+    bookmarkedButton() { return cy.contains('Bookmarked') } 
+
+    newFeedButton() { return cy.contains('New Feed') }    
 
 }

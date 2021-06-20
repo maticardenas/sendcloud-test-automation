@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import { AllFeedsPage } from "../page-objects/all-feeds-page"
 import { HomePage } from "../page-objects/home-page"
 import { LogInPage } from "../page-objects/log-in-page"
 import { MainTopBar } from "../page-objects/main-top-bar"
@@ -9,7 +10,8 @@ const homePage = new HomePage()
 const mainTopBar = new MainTopBar()
 const signUpPage = new SignUpPage()
 const logInPage = new LogInPage()
-const base_app_url = Cypress.env("baseUrl")
+const allFeedsPage = new AllFeedsPage()
+const base_app_url = Cypress.config("baseUrl")
 
 describe("Home page smoke tests", () => {    
 
@@ -36,6 +38,14 @@ describe("Home page smoke tests", () => {
         cy.url().should(
             "be.equal",
             `${base_app_url}${logInPage.endpoint}`
+        )   
+    })
+
+    it("validate all feeds opens", () => {
+        mainTopBar.allFeedsButton().click()
+        cy.url().should(
+            "be.equal",
+            `${base_app_url}${allFeedsPage.endpoint}`
         )   
     })
 

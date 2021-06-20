@@ -1,5 +1,4 @@
 {
-    "env": {
-        "baseUrl": "http://localhost:8000/"
-     }
+    "baseUrl": "http://localhost:8000/",
+    "watchForFileChanges": false
 }

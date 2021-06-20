@@ -4,12 +4,22 @@ export class SignUpPage {
 
     endpoint = "accounts/register/"
 
-    usernameField() { return cy.get('#id_username') }
+    navigate() { cy.visit(`/${this.endpoint}`)}
+
+    usernameField() { return cy.get('#id_username') }    
 
     passwordField() { return cy.get('#id_password1') }
 
     passwordConfirmationField() { return cy.get('#id_password2') }
 
     submitButton() { return cy.get('#submit-id-submit') }
+
+    errorFieldUser() { return cy.get('#error_1_id_username > strong') }
+    
+    errorFieldPassword() {return cy.get('#error_1_id_password1 > strong') } 
+
+    errorFieldPasswordConfirm() {return cy.get('#error_1_id_password2 > strong') } 
+
+    errorHintIdUsername() { return cy.get('#hint_id_username') } 
 
 }
