@@ -21,11 +21,13 @@ describe("Log In Page tests", () => {
         signUpPage.navigate()
         cy.signup(username, userpassword)
         testUsername = username
+        mainTopBar.logOutButton().click()        
     })
 
     beforeEach(() => { loginPage.navigate() })
 
     it("Opening default Log In page", () => {
+        // Given - When - Then
         loginPage.usernameField().should("exist")
         loginPage.passwordField().should("exist")                    
         loginPage.loginButton().should("exist")                       
@@ -35,8 +37,11 @@ describe("Log In Page tests", () => {
         mainTopBar.logInButton().should("exist")
     })
 
-    it.only("Positive user log in", () => {
+    it("Positive user log in", () => {
+        // Given - When
         cy.login(testUsername, "test_password")
+
+        // Then
         cy.url().should(
             "be.equal",
             `${base_app_url}${allFeedsPage.endpoint}`

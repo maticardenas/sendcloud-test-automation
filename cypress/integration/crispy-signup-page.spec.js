@@ -79,7 +79,7 @@ describe("Sign Up Page tests", () => {
         validateFieldIsRequired(signUpPage.errorFieldPasswordConfirm())
     })
     
-    it.only("Sign up with different passwords", () => {
+    it("Sign up with different passwords", () => {
         // Given
         var userNumber = Math.floor(Math.random() * 100000)
         var username = "test_user_" + userNumber
@@ -100,7 +100,7 @@ describe("Sign Up Page tests", () => {
     })
 
     shortPasswords.forEach((shortPassword) => {
-        it.only(`Sign up with short (${shortPassword.length} chars) password  `, () => {
+        it(`Sign up with short (${shortPassword.length} chars) password  `, () => {
             // Given
             var userNumber = Math.floor(Math.random() * 100000)
             var username = "test_user_" + userNumber

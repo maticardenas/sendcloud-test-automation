@@ -17,7 +17,8 @@ describe("Home page smoke tests", () => {
 
     beforeEach(() => { homePage.navigate() })
 
-    it("validates default homepage", () => {
+    it("Validates default homepage", () => {
+        // Given - When - Then
         homePage.signUpButton().should("exist")                
         
         mainTopBar.crispySuccostashButton().should("exist")
@@ -25,24 +26,33 @@ describe("Home page smoke tests", () => {
         mainTopBar.logInButton().should("exist")
     })
 
-    it("validate click sign up opens", () => {
+    it("Validate  Sign Up opens", () => {
+        // Given - When
         homePage.signUpButton().click()       
+
+        // Then
         cy.url().should(
             "be.equal",
             `${base_app_url}${signUpPage.endpoint}`
         )
     })
 
-    it("validate log in opens", () => {
+    it("Validate Log In opens", () => {
+        // Given - When
         mainTopBar.logInButton().click()  
+
+        // Then
         cy.url().should(
             "be.equal",
             `${base_app_url}${logInPage.endpoint}`
         )   
     })
 
-    it("validate all feeds opens", () => {
+    it("Validate All Feeds opens", () => {
+        // Given - When
         mainTopBar.allFeedsButton().click()
+
+        // Then
         cy.url().should(
             "be.equal",
             `${base_app_url}${allFeedsPage.endpoint}`

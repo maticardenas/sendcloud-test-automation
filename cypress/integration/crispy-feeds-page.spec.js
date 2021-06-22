@@ -7,12 +7,14 @@ import { SignUpPage } from "../page-objects/sign-up-page"
 import { SpecificFeedPage } from "../page-objects/specific-feed-page"
 import { AllFeedsPage } from "../page-objects/all-feeds-page"
 import { BookmarkedFeedsPage } from "../page-objects/bookmarked-feeds-page"
+import { MyFeedsPage } from "../page-objects/my-feeds-page"
 
 const mainTopBar = new MainTopBar()
 const loginPage = new LogInPage()
 const signUpPage = new SignUpPage()
 const newFeedPage = new NewFeedPage()
 const allFeedsPage = new AllFeedsPage()
+const myFeedsPage = new MyFeedsPage()
 const bookmarkedFeedsPage = new BookmarkedFeedsPage()
 const specificFeedPage = new SpecificFeedPage()
 const base_app_url = Cypress.config("baseUrl")
@@ -41,6 +43,7 @@ describe("Feed Tests", () => {
     })
 
     it("Opening default New Feed page", () => {
+        // Given - When - Then
         newFeedPage.feedUrlField().should("exist")
         newFeedPage.submitButton().should("exist")                   
         
@@ -49,41 +52,75 @@ describe("Feed Tests", () => {
         mainTopBar.newFeedButton().should("exist")
     })
    
-    it.skip("Submit empty feed", () => {        
+    it("Submit empty feed", () => {        
+        // Given - When
         newFeedPage.submitButton().click()
 
+        // Then
         newFeedPage.errorFieldFeed().should(
             "have.text",
             "This field is required."
         )
     })
 
-    it.skip("Positive submit feed 1", () => {
-        var feedUrl = "http://www.nu.nl/rss/Algemeen"
-        newFeedPage.feedUrlField().type(feedUrl)
-        newFeedPage.submitButton().click()
+    it("My Feeds empty when user without feeds", () => {
+        // Given - When
+        myFeedsPage.navigate()
 
-        cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}1`)        
+        // Then
+        cy.contains("Nothing to see here. Move on!").should("exist")
     })
 
-    it.skip("Positive submit feed 2", () => {
-        var feedUrl = "http://www.nu.nl/rss/Algemeen"
-        newFeedPage.feedUrlField().type(feedUrl)
-        newFeedPage.submitButton().click()
+    context("New Feeds creation", () => {
+        it("Positive submit feed 1", () => {
+            // Given
+            var feedUrl = "http://www.nu.nl/rss/Algemeen"
 
-        cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}2`)
+            // When
+            newFeedPage.feedUrlField().type(feedUrl)
+            newFeedPage.submitButton().click()
+
+            // Then
+            cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}1`)        
+        })
+
+        it("Positive submit feed 2", () => {
+            // Given
+            var feedUrl = "http://www.nu.nl/rss/Algemeen"
+
+            // When
+            newFeedPage.feedUrlField().type(feedUrl)
+            newFeedPage.submitButton().click()
+
+            // Then
+            cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}2`)
+        })
+
+
+        it("Validate All Feeds added", () => {
+            // Given - When
+            myFeedsPage.navigate()
+
+            // Then
+            cy.contains("http://www.nu.nl/rss/Algemeen").should("exist")
+            cy.contains("https://feeds.feedburner.com/tweakers/mixed").should("exist")
+        })
     })
 
     it("Validate All Feeds added", () => {
+        // Given - When
         allFeedsPage.navigate()
         
+        // Then
         cy.contains("http://www.nu.nl/rss/Algemeen").should("exist")
         cy.contains("https://feeds.feedburner.com/tweakers/mixed").should("exist")
     })
 
     it("Validate specific feed", () => {
+        // Given - When
         specificFeedPage.navigate(1)
 
+        // Then
         cy.contains("test_user_").should("exist")
         cy.contains("http://www.nu.nl/rss/Algemeen").should("exist")
         specificFeedPage.checkForUpdatesButton().should("exist")
@@ -91,16 +128,20 @@ describe("Feed Tests", () => {
     })
 
     it("Validate Empty Bookmark Feeds page", () => {
+        // Given - When
         bookmarkedFeedsPage.navigate()
         
+        // Then
         cy.contains("Nothing to see here. Move on!").should("exist")        
     })
 
     it("Validate Bookmark feed", () => {
+        // Given - When
         specificFeedPage.navigate(1)
-
         specificFeedPage.bookmarkButton().click()
         bookmarkedFeedsPage.navigate()
+
+        // Then
         cy.contains("http://www.nu.nl/rss/Algemeen").should("exist")
     })
     
