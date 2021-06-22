@@ -2,10 +2,12 @@
 
 export class HomePage{
 
-    signUpButton(){ return cy.get('.btn') }
+    endpoint = "/"
 
     navigate() {
-        cy.visit("/")
+        cy.visit(this.endpoint)
     }
+
+    signUpButton(){ return cy.get('.btn') }   
 
 }

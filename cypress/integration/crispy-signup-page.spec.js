@@ -15,6 +15,7 @@ describe("Sign Up Page tests", () => {
     beforeEach(() => { signUpPage.navigate() })
 
     it("Opening default Sign Up page", () => {
+        // Given - When - Then
         signUpPage.usernameField().should("exist")
         signUpPage.passwordField().should("exist")                
         signUpPage.passwordConfirmationField().should("exist")         
@@ -26,11 +27,16 @@ describe("Sign Up Page tests", () => {
     })
 
     it("Positive user sign up", () => {
+        // Given
         var userNumber = Math.floor(Math.random() * 10000)
         var username = "test_user_" + userNumber
         var userpassword = "test_password"
+
+        // When
         cy.signup(username, userpassword)
 
+
+        // Then
         cy.url().should(
             "be.equal",
             `${base_app_url}${allFeedsPage.endpoint}`
@@ -45,14 +51,17 @@ describe("Sign Up Page tests", () => {
     })
 
     it("Sign up already existing user", () => {
+        // Given
         var userNumber = Math.floor(Math.random() * 100000)
         var username = "test_user_" + userNumber
         var userpassword = "test_password"
         cy.signup(username, userpassword)
         
+        // When 
         signUpPage.navigate()
         cy.signup(username, userpassword)
 
+        // Then
         signUpPage.errorFieldUser().should(
             "have.text",
             "A user with that username already exists."
@@ -61,31 +70,49 @@ describe("Sign Up Page tests", () => {
     })
 
     it("Sign up empty fields", () => {
+        // Given - When
         signUpPage.submitButton().click()
 
+        // Then
         validateFieldIsRequired(signUpPage.errorFieldUser())
         validateFieldIsRequired(signUpPage.errorFieldPassword())
         validateFieldIsRequired(signUpPage.errorFieldPasswordConfirm())
     })
     
-    it("Sign up with different passwords", () => {
+    it.only("Sign up with different passwords", () => {
+        // Given
         var userNumber = Math.floor(Math.random() * 100000)
         var username = "test_user_" + userNumber
-        var userpassword = "test_password"
-        cy.signup(username, userpassword)
+        var password_1 = "test_password"
+        var password_2 = "test_password_diff"
         
-        signUpPage.navigate()
-        cy.signup(username, userpassword)
+        // When
+        signUpPage.usernameField().type(username)
+        signUpPage.passwordField().type(password_1)
+        signUpPage.passwordConfirmationField().type(password_2)
+        signUpPage.submitButton().click()       
 
-        signUpPage.errorAlreadyExistingUsername().should("exist")
-        signUpPage.errorHintIdUsername().should("exist")
+        // Then
+        signUpPage.errorFieldPasswordConfirm().should(
+            "have.text",
+            "The two password fields didn't match."
+        )
     })
 
     shortPasswords.forEach((shortPassword) => {
-        it(`Sign up with short (${shortPassword.length} chars) password  `, () => {
+        it.only(`Sign up with short (${shortPassword.length} chars) password  `, () => {
+            // Given
             var userNumber = Math.floor(Math.random() * 100000)
             var username = "test_user_" + userNumber
+
+            // When
             cy.signup(username, shortPassword)
+            
+            // Then
+            signUpPage.errorFieldPasswordConfirm().should(
+                "have.text",
+                "This password is too short. It must contain at least 8 characters."
+            )
         })
     })
 
