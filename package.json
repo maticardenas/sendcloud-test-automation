@@ -4,7 +4,13 @@
   "description": "Test automation solution for Sendcloud's Crispy Succostash application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress": "cypress open",
+    "home-tests": "cypress run --spec cypress/integration/crispy-home-page.spec.js",
+    "login-tests": "cypress run --spec cypress/integration/crispy-login-page.spec.js",
+    "signup-tests": "cypress run --spec cypress/integration/crispy-signup-page.spec.js",
+    "feeds-tests": "cypress run --spec cypress/integration/crispy-feeds-page.spec.js",
+    "visual-validation": "cypress run --spec cypress/integration/crispy-visual-valid.spec.js",
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
