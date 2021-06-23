@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/maticardenas/sendcloud-test-automation#readme",
   "dependencies": {
+    "@applitools/eyes-cypress": "^3.22.0",
     "cypress": "^7.5.0"
+  },
+  "devDependencies": {
+    "mochawesome": "^6.2.2"
   }
 }

@@ -1,4 +1,12 @@
 {
     "baseUrl": "http://localhost:8000/",
-    "watchForFileChanges": false
+    "watchForFileChanges": false,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/report/crispy-sendcloud-report",
+        "overwrite": true,
+        "html": true,
+        "json": false,
+        "timestamp": "mmddyyyy_HHMMss"
+     }
 }
