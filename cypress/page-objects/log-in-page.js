@@ -12,4 +12,16 @@ export class LogInPage {
 
     loginButton() { return cy.get('.bs-component > .btn') }
 
+    typeUsername(username) {
+         this.usernameField().type(username)
+    }
+
+    typePassword(password) {
+        this.passwordField().type(password)
+    }
+
+    clikOnLogin() {
+        this.loginButton().click()
+    }
+
 }

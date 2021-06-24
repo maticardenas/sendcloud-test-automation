@@ -18,4 +18,12 @@ export class FeedsEntryPage {
         return cy.get(`tbody > :nth-child(${feedNumber}) > :nth-child(1) > a`)
     }
 
+    submitComment() {
+        this.submitButton().click()
+    }
+
+    typeComment(comment) {
+        this.commentField(comment)
+    }
+
 }

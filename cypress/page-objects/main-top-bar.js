@@ -15,4 +15,32 @@ export class MainTopBar {
 
     newFeedButton() { return cy.contains('New Feed') }    
 
+    clickOnLoginButton() {
+        this.logInButton().click()
+    }
+
+    clickOnLogOutButton() {
+        this.logOutButton().click()
+    }
+
+    clickAllFeedsButton() {
+        this.allFeedsButton().click()
+    }
+
+    clickMyFeedsButton(){
+        this.myFeedsButton().click()
+    }
+
+    clickCrispySuccostashButton() {
+        this.crispySuccostashButton().click()
+    }
+
+    clickBookmarkedButton() {
+        this.bookmarkedButton().click()
+    }
+
+    clickNewFeedButton() {
+        this.newFeedButton().click()
+    }
+
 }

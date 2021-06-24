@@ -8,6 +8,10 @@ export class HomePage{
         cy.visit(this.endpoint)
     }
 
-    signUpButton(){ return cy.get('.btn') }   
+    signUpButton() { return cy.get('.btn') }  
+    
+    clickOnSignUp() {
+        this.signUpButton().click()
+    }
 
 }

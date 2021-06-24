@@ -11,4 +11,8 @@ export class AllFeedsPage {
     titleLink(feedNumber){
         return cy.get(`tbody > :nth-child(${feedNumber}) > :nth-child(1) > a`)
     }
+
+    clickOnTitleLink(feedNumber){
+        this.titleLink(feedNumber).click()
+    }
 }

@@ -79,8 +79,8 @@ describe("Feed Tests", () => {
             var feedUrl = "http://www.nu.nl/rss/Algemeen"
 
             // When
-            newFeedPage.feedUrlField().type(feedUrl)
-            newFeedPage.submitButton().click()
+            newFeedPage.typeFeedUrlField(feedUrl)
+            newFeedPage.clickOnSubmitButton()
 
             // Then
             cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}1`)        
@@ -91,8 +91,8 @@ describe("Feed Tests", () => {
             var feedUrl = "http://www.nu.nl/rss/Algemeen"
 
             // When
-            newFeedPage.feedUrlField().type(feedUrl)
-            newFeedPage.submitButton().click()
+            newFeedPage.typeFeedUrlField(feedUrl)
+            newFeedPage.clik
 
             // Then
             cy.url().should("be.equal", `${base_app_url}${specificFeedPage.endpoint}2`)
@@ -140,7 +140,7 @@ describe("Feed Tests", () => {
     it("Validate Bookmark feed", () => {
         // Given - When
         specificFeedPage.navigate(1)
-        specificFeedPage.bookmarkButton().click()
+        specificFeedPage.clickOnBookmarkButton()
         bookmarkedFeedsPage.navigate()
 
         // Then
@@ -149,10 +149,10 @@ describe("Feed Tests", () => {
 
     it("Validate Feed Entry when Logged Out", () => {
         // Given - When
-        mainTopBar.logOutButton().click()
+        mainTopBar.clickOnLogOutButton()
         allFeedsPage.navigate()
-        allFeedsPage.titleLink(1).click()
-        specificFeedPage.titleLink(1).click()
+        allFeedsPage.clickOnTitleLink(1)
+        specificFeedPage.clickOnTitleLink(1)
 
         // Then
         cy.contains("Sign in to comment").should("exist")
@@ -161,8 +161,8 @@ describe("Feed Tests", () => {
     it("Validate Feed Entry when Logged In", () => {
         // Given - When
         allFeedsPage.navigate()
-        allFeedsPage.titleLink(1).click()
-        specificFeedPage.titleLink(1).click()
+        allFeedsPage.clickOnTitleLink(1)
+        specificFeedPage.clickOnTitleLink(1)
 
         // Then
         cy.contains("Sign in to comment").should("not.exist")
@@ -170,16 +170,16 @@ describe("Feed Tests", () => {
         feedsEntryPage.submitButton().should("exist")
     })
 
-    it("Validate add coment in Feed Entry", () => {
+    it("Validate add comnent in Feed Entry", () => {
         // Given
         var test_number = Math.floor(Math.random() * 10000)
         
         // When
         allFeedsPage.navigate()
-        allFeedsPage.titleLink(1).click()
-        specificFeedPage.titleLink(1).click()
-        feedsEntryPage.commentField().type("Test comment number " + test_number)
-        feedsEntryPage.submitButton().click()
+        allFeedsPage.clickOnTitleLink(1)
+        specificFeedPage.clickOnTitleLink(1)
+        feedsEntryPage.typeComment("Test comment number " + test_number)
+        feedsEntryPage.submitComment()
 
         // Then        
         cy.contains(testUsername).should("exist")

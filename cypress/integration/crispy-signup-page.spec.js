@@ -87,10 +87,10 @@ describe("Sign Up Page tests", () => {
         var password_2 = "test_password_diff"
         
         // When
-        signUpPage.usernameField().type(username)
-        signUpPage.passwordField().type(password_1)
-        signUpPage.passwordConfirmationField().type(password_2)
-        signUpPage.submitButton().click()       
+        signUpPage.typeUsername(username)
+        signUpPage.typePassword(password_1)
+        signUpPage.typePasswordConfirmation(password_2)
+        signUpPage.clickOnSubmit()       
 
         // Then
         signUpPage.errorFieldPasswordConfirm().should(

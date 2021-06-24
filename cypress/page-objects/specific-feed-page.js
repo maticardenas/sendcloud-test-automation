@@ -14,8 +14,16 @@ export class SpecificFeedPage {
 
     feedUrlField() { return cy.get('.dl-horizontal > :nth-child(4)') }
 
-    titleLink(feedNumber){
+    titleLink(titleNumber){
         return cy.get(`tbody > :nth-child(${feedNumber}) > :nth-child(1) > a`)
+    }
+
+    clickOnBookmarkButton() {
+        this.bookmarkButton().click()
+    }
+
+    clickOnTitleLink(titleNumber) {
+        return this.titleLink(titleNumber).click()
     }
     
 }

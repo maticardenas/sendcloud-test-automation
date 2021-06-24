@@ -12,4 +12,12 @@ export class NewFeedPage {
 
     errorFieldFeed() { return cy.get("#error_1_id_feed_url") }
 
+    typeFeedUrlField(feedUrl) {
+        this.feedUrlField().type(feedUrl)
+    }
+
+    clickOnSubmitButton() {
+        this.submitButton().click()  
+    }
+
 }

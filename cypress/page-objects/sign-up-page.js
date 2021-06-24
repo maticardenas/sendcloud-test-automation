@@ -22,4 +22,20 @@ export class SignUpPage {
 
     errorHintIdUsername() { return cy.get('#hint_id_username') } 
 
+
+    typeUsername(username) {
+        this.usernameField().type(username)
+    }
+
+    typePassword(password) {
+       this.passwordField().type(password)
+    }
+
+    typePasswordConfirmation(password) {
+        this.passwordConfirmationField().type(password)
+    }
+
+    clickOnSubmit() {
+        this.submitButton().click()
+    }
 }

@@ -31,14 +31,14 @@ const signUpPage = new SignUpPage()
 const logInPage = new LogInPage()
 
 Cypress.Commands.add("signup", (username, password) => {
-    signUpPage.usernameField().type(username)
-    signUpPage.passwordField().type(password)
-    signUpPage.passwordConfirmationField().type(password)
-    signUpPage.submitButton().click()
+    signUpPage.typeUsername(username)
+    signUpPage.typePassword(password)
+    signUpPage.typePasswordConfirmation(password)
+    signUpPage.clickOnSubmit()
 })
 
 Cypress.Commands.add("login", (username, password) => {
-    logInPage.usernameField().type(username)
-    logInPage.passwordField().type(password)
-    logInPage.loginButton().click()
+    logInPage.typeUsername(username)
+    logInPage.typePassword(password)
+    logInPage.clikOnLogin()
 })

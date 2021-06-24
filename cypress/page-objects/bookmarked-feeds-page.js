@@ -6,8 +6,9 @@ export class BookmarkedFeedsPage {
 
     navigate(feedId) { cy.visit(`/${this.endpoint}`)}
 
-    checkForUpdatesButton() { return cy.get('.text-right > .btn') }
-
     bookmarkButton() { return cy.get('[href="/feeds/1/toggle-bookmark/"] > .glyphicon') }
     
+    clickOnBookmarkButton() {
+        this.bookmarkButton().click()
+    }
 }

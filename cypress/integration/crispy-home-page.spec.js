@@ -28,7 +28,7 @@ describe("Home page smoke tests", () => {
 
     it("Validate  Sign Up opens", () => {
         // Given - When
-        homePage.signUpButton().click()       
+        homePage.clickOnSignUp()      
 
         // Then
         cy.url().should(
@@ -39,7 +39,7 @@ describe("Home page smoke tests", () => {
 
     it("Validate Log In opens", () => {
         // Given - When
-        mainTopBar.logInButton().click()  
+        mainTopBar.clickOnLoginButton()
 
         // Then
         cy.url().should(
@@ -50,7 +50,7 @@ describe("Home page smoke tests", () => {
 
     it("Validate All Feeds opens", () => {
         // Given - When
-        mainTopBar.allFeedsButton().click()
+        mainTopBar.clickAllFeedsButton()
 
         // Then
         cy.url().should(
