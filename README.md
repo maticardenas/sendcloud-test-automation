@@ -14,9 +14,18 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 * Browser installed (Chrome, Firefox)
 
+* Sendcloud's Crispy Succostash application should be running:
+
+```bash
+https://gitlab.com/sendcloud-public/crispy-succotash
+```
+
 ## SOLUTION
 
-### Tests implemented
+### Deisgn & Tests implemented
+
+Tests are divided in 4 main parts: Home, Sign Up, Log In and Feeds pages.
+
 
 |   |  |
 | ------- | ------- |
@@ -33,8 +42,31 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 | Validate positive user log in | Validate add comment in Feed Entry |
 
 
-
 ## Usage Instructions
+
+## URL CONFIGURATION
+
+If you are running Crispy Succostash application by default, it will run in port 8000 in your localhost -> `http://localhost:8000`
+Solution is currently configured to run against that, so nothing is required to be done.
+
+However, this test solution should work whichever the port or url the app is running in (as long as it is accessible), if that is the case, the url can be updated in the `cypress.json` file of the project and the test solution will you use it to run the whole suite:
+
+```json
+{
+    "baseUrl": "http://localhost:8000/",
+    "watchForFileChanges": false,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/report/crispy-sendcloud-report",
+        "overwrite": true,
+        "html": true,
+        "json": false,
+        "timestamp": "mmddyyyy_HHMMss"
+     },
+     "ignoreTestFiles": "crispy-visual-valid.spec.js"
+}
+```
+
 
 ## EXECUTION
 
@@ -91,7 +123,7 @@ Making use of `mochawesome` reports, after NON-INTERACTIVE execution a group of 
 NOTE: Refer to SendcloudTestAutomation.pdf file in root's repository folder for more details.
 
 
-### VISUAL VALIDATION TESTS
+### VISUAL VALIDATION TEST
 
 A test case (`crispy-visual-valid.spec.js`) for aspect validation of the application has been also implemented making usage of `applitools / eyes-cypress`
 
@@ -124,7 +156,7 @@ Windows:
 
 #### EXECUTION
 
-Given the requirements step, this test is disabled by default in the suite. In order to enable it, it is just needed to remove the ignore line at cypres.json file:
+Given the requirements step, this test is disabled by default in the suite. In order to enable it, it is just needed to remove the ignore line at `cypress.json` file:
 
 ```bash
    "ignoreTestFiles": "crispy-visual-valid.spec.js"
