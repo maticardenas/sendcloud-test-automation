@@ -23,7 +23,7 @@ export class FeedsEntryPage {
     }
 
     typeComment(comment) {
-        this.commentField(comment)
+        this.commentField().type(comment)
     }
 
 }

@@ -10,7 +10,7 @@ const allFeedsPage = new AllFeedsPage()
 const base_app_url = Cypress.config("baseUrl")
 const { shortPasswords } = require('../fixtures/short_passwords')
 
-describe("Sign Up Page tests", () => {    
+describe("Sign Up Page Tests", () => {    
 
     beforeEach(() => { signUpPage.navigate() })
 

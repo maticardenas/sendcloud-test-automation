@@ -21,7 +21,7 @@ const bookmarkedFeedsPage = new BookmarkedFeedsPage()
 const specificFeedPage = new SpecificFeedPage()
 const base_app_url = Cypress.config("baseUrl")
 
-describe("Feed Tests", () => {
+describe("Feeds Tests", () => {
 
     let testUsername
     

@@ -13,7 +13,7 @@ const logInPage = new LogInPage()
 const allFeedsPage = new AllFeedsPage()
 const base_app_url = Cypress.config("baseUrl")
 
-describe("Home page smoke tests", () => {    
+describe("Home Page Tests", () => {    
 
     beforeEach(() => { homePage.navigate() })
 

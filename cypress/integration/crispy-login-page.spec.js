@@ -11,7 +11,7 @@ const signUpPage = new SignUpPage()
 const allFeedsPage = new AllFeedsPage()
 const base_app_url = Cypress.config("baseUrl")
 
-describe("Log In Page tests", () => {
+describe("Log In Page Tests", () => {
     let testUsername
 
     before(() => { 

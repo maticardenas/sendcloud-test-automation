@@ -4,7 +4,7 @@ export class BookmarkedFeedsPage {
 
     endpoint = "feeds/bookmarked/"
 
-    navigate(feedId) { cy.visit(`/${this.endpoint}`)}
+    navigate() { cy.visit(`/${this.endpoint}`)}
 
     bookmarkButton() { return cy.get('[href="/feeds/1/toggle-bookmark/"] > .glyphicon') }
     
