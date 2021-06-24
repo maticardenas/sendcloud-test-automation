@@ -56,6 +56,9 @@ Results will be displayed in the console without opening the interactive runner.
 Making use of `mochawesome` reports, after NON-INTERACTIVE execution a group of them are generated for all the tests at `/report/crispy-sendcloud-report` directory
 
 
+NOTE: Refer to SendcloudTestAutomation.pdf file in root's repository folder for more details.
+
+
 ### VISUAL VALIDATION TESTS
 
 A test case (`crispy-visual-valid.spec.js`) for aspect validation of the application has been also implemented making usage of `applitools / eyes-cypress`
