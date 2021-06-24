@@ -14,6 +14,22 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 * Browser installed (Chrome, Firefox)
 
+## SOLUTION
+
+### Tests Included
+
+|Validate default home page|Validate default new feed page|
+|Validate Log In opens|Validate My Feeds when empty|
+|Validate All Feeds opens|Validate submit empty feed|
+|Validate Sign Up opens|Validate All Feeds when added|
+|Validate default sign up page|Validate specific feed added|
+|Validate Positive User sign up|Validate empty bookmark feeds page|
+|Validate sign up with empty fields|Validate bookmarked feed|
+|Validate sign up with different passwords|Validate New Feed creation|
+|Validate sign up with short passwords -> data driven test cases (8 in total)|Validate Feed Entry when Logged Out|
+|Validate default log in page|Validate Feed Entry when Logged In|
+|Validate positive user log in|Validate add comment in Feed Entry|
+
 ## Usage Instructions
 
 ## EXECUTION
@@ -62,7 +78,6 @@ For running each of the tests suites individually:
   npm run signup-tests
   npm run feeds-tests
 ```
-
 
 ### REPORTING
 
