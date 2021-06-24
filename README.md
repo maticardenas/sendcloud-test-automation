@@ -20,6 +20,19 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 Scripts shortcuts have been added at `package.json` file, for executing all tests from npm.
 
+```json
+	"scripts": {
+	    "cypress": "cypress open",
+	    "home-tests": "cypress run --spec cypress/integration/crispy-home-page.spec.js",
+	    "login-tests": "cypress run --spec cypress/integration/crispy-login-page.spec.js",
+	    "signup-tests": "cypress run --spec cypress/integration/crispy-signup-page.spec.js",
+	    "feeds-tests": "cypress run --spec cypress/integration/crispy-feeds-page.spec.js",
+	    "visual-validation": "cypress run --spec cypress/integration/crispy-visual-valid.spec.js",
+	    "test": "cypress run"
+	  }
+```
+
+
 ```bash
   npm run cypress
   npm run test
