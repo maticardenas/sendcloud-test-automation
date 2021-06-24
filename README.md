@@ -30,6 +30,15 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 |Validate default log in page|Validate Feed Entry when Logged In|
 |Validate positive user log in|Validate add comment in Feed Entry|
 
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
 ## Usage Instructions
 
 ## EXECUTION
