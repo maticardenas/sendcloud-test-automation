@@ -14,6 +14,12 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 * Browser installed (Chrome, Firefox)
 
+* Sendcloud's Crispy Succostash application should be running:
+
+```bash
+https://gitlab.com/sendcloud-public/crispy-succotash
+```
+
 ## SOLUTION
 
 ### Deisgn & Tests implemented
@@ -37,6 +43,30 @@ Tests are divided in 4 main parts: Home, Sign Up, Log In and Feeds pages.
 
 
 ## Usage Instructions
+
+## URL CONFIGURATION
+
+If you are running Crispy Succostash application by default, it will run in port 8000 in your localhost -> `http://localhost:8000`
+Solution is currently configured to run against that, so nothing is required to be done.
+
+However, this test solution should work whichever the port or url the app is running in (as long as it is accessible), if that is the case, the url can be updated in the `cypress.json` file of the project and the test solution will you use it to run the whole suite:
+
+```json
+{
+    "baseUrl": "http://localhost:8000/",
+    "watchForFileChanges": false,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/report/crispy-sendcloud-report",
+        "overwrite": true,
+        "html": true,
+        "json": false,
+        "timestamp": "mmddyyyy_HHMMss"
+     },
+     "ignoreTestFiles": "crispy-visual-valid.spec.js"
+}
+```
+
 
 ## EXECUTION
 
