@@ -16,8 +16,7 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 ## SOLUTION
 
-### Tests Included
-| Plugin | README |
+| Tests Included |
 | ------ | ------ |
 | Validate default home page | Validate default new feed page |
 | Validate Log In opens | Validate My Feeds when empty |
