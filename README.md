@@ -126,7 +126,7 @@ Windows:
 
 #### EXECUTION
 
-Given the requirements step, this test is disabled by default in the suite. In order to enable it, it is just needed to remove the ignore line at cypres.json file:
+Given the requirements step, this test is disabled by default in the suite. In order to enable it, it is just needed to remove the ignore line at `cypress.json` file:
 
 ```bash
    "ignoreTestFiles": "crispy-visual-valid.spec.js"
