@@ -16,7 +16,10 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 ## SOLUTION
 
-### Tests implemented
+### Deisgn & Tests implemented
+
+Tests are divided in 4 main parts: Home, Sign Up, Log In and Feeds pages.
+
 
 |   |  |
 | ------- | ------- |
@@ -31,7 +34,6 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 | Validate sign up with short passwords -> data driven test cases (8 in total) | Validate Feed Entry when Logged Out |
 | Validate default log in page | Validate Feed Entry when Logged In |
 | Validate positive user log in | Validate add comment in Feed Entry |
-
 
 
 ## Usage Instructions
@@ -91,7 +93,7 @@ Making use of `mochawesome` reports, after NON-INTERACTIVE execution a group of 
 NOTE: Refer to SendcloudTestAutomation.pdf file in root's repository folder for more details.
 
 
-### VISUAL VALIDATION TESTS
+### VISUAL VALIDATION TEST
 
 A test case (`crispy-visual-valid.spec.js`) for aspect validation of the application has been also implemented making usage of `applitools / eyes-cypress`
 
