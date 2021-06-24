@@ -8,6 +8,7 @@ import { SpecificFeedPage } from "../page-objects/specific-feed-page"
 import { AllFeedsPage } from "../page-objects/all-feeds-page"
 import { BookmarkedFeedsPage } from "../page-objects/bookmarked-feeds-page"
 import { MyFeedsPage } from "../page-objects/my-feeds-page"
+import { FeedsEntryPage } from "../page-objects/feeds-entry-page"
 
 const mainTopBar = new MainTopBar()
 const loginPage = new LogInPage()
@@ -15,6 +16,7 @@ const signUpPage = new SignUpPage()
 const newFeedPage = new NewFeedPage()
 const allFeedsPage = new AllFeedsPage()
 const myFeedsPage = new MyFeedsPage()
+const feedsEntryPage = new FeedsEntryPage()
 const bookmarkedFeedsPage = new BookmarkedFeedsPage()
 const specificFeedPage = new SpecificFeedPage()
 const base_app_url = Cypress.config("baseUrl")
@@ -143,6 +145,45 @@ describe("Feed Tests", () => {
 
         // Then
         cy.contains("http://www.nu.nl/rss/Algemeen").should("exist")
+    })
+
+    it("Validate Feed Entry when Logged Out", () => {
+        // Given - When
+        mainTopBar.logOutButton().click()
+        allFeedsPage.navigate()
+        allFeedsPage.titleLink(1).click()
+        specificFeedPage.titleLink(1).click()
+
+        // Then
+        cy.contains("Sign in to comment").should("exist")
+    })
+
+    it("Validate Feed Entry when Logged In", () => {
+        // Given - When
+        allFeedsPage.navigate()
+        allFeedsPage.titleLink(1).click()
+        specificFeedPage.titleLink(1).click()
+
+        // Then
+        cy.contains("Sign in to comment").should("not.exist")
+        feedsEntryPage.commentField().should("exist")
+        feedsEntryPage.submitButton().should("exist")
+    })
+
+    it("Validate add coment in Feed Entry", () => {
+        // Given
+        var test_number = Math.floor(Math.random() * 10000)
+        
+        // When
+        allFeedsPage.navigate()
+        allFeedsPage.titleLink(1).click()
+        specificFeedPage.titleLink(1).click()
+        feedsEntryPage.commentField().type("Test comment number " + test_number)
+        feedsEntryPage.submitButton().click()
+
+        // Then        
+        cy.contains(testUsername).should("exist")
+        cy.contains("Test comment number " + test_number).should("exist")
     })
     
 })

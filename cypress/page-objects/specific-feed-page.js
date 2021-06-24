@@ -13,5 +13,9 @@ export class SpecificFeedPage {
     addedByField() { return cy.get('.dl-horizontal > :nth-child(2)') }
 
     feedUrlField() { return cy.get('.dl-horizontal > :nth-child(4)') }
+
+    titleLink(feedNumber){
+        return cy.get(`tbody > :nth-child(${feedNumber}) > :nth-child(1) > a`)
+    }
     
 }
