@@ -18,26 +18,19 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 ### Tests Included
 
-|Validate default home page|Validate default new feed page|
-|Validate Log In opens|Validate My Feeds when empty|
-|Validate All Feeds opens|Validate submit empty feed|
-|Validate Sign Up opens|Validate All Feeds when added|
-|Validate default sign up page|Validate specific feed added|
-|Validate Positive User sign up|Validate empty bookmark feeds page|
-|Validate sign up with empty fields|Validate bookmarked feed|
-|Validate sign up with different passwords|Validate New Feed creation|
-|Validate sign up with short passwords -> data driven test cases (8 in total)|Validate Feed Entry when Logged Out|
-|Validate default log in page|Validate Feed Entry when Logged In|
-|Validate positive user log in|Validate add comment in Feed Entry|
+| Validate default home page | Validate default new feed page |
+| Validate Log In opens | Validate My Feeds when empty |
+| Validate All Feeds opens | Validate submit empty feed |
+| Validate Sign Up opens | Validate All Feeds when added |
+| Validate default sign up page | Validate specific feed added |
+| Validate Positive User sign up | Validate empty bookmark feeds page |
+| Validate sign up with empty fields | Validate bookmarked feed |
+| Validate sign up with different passwords | Validate New Feed creation |
+| Validate sign up with short passwords -> data driven test cases (8 in total) | Validate Feed Entry when Logged Out |
+| Validate default log in page | Validate Feed Entry when Logged In |
+| Validate positive user log in | Validate add comment in Feed Entry |
 
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
 
 ## Usage Instructions
 
