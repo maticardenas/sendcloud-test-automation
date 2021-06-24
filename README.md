@@ -21,26 +21,17 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 Scripts shortcuts have been added at `package.json` file, for executing all tests from npm.
 
 ```json
-	"scripts": {
-	    "cypress": "cypress open",
-	    "home-tests": "cypress run --spec cypress/integration/crispy-home-page.spec.js",
-	    "login-tests": "cypress run --spec cypress/integration/crispy-login-page.spec.js",
-	    "signup-tests": "cypress run --spec cypress/integration/crispy-signup-page.spec.js",
-	    "feeds-tests": "cypress run --spec cypress/integration/crispy-feeds-page.spec.js",
-	    "visual-validation": "cypress run --spec cypress/integration/crispy-visual-valid.spec.js",
-	    "test": "cypress run"
-	  }
+"scripts": {
+	"cypress": "cypress open",
+	"home-tests": "cypress run --spec cypress/integration/crispy-home-page.spec.js",
+	"login-tests": "cypress run --spec cypress/integration/crispy-login-page.spec.js",
+	"signup-tests": "cypress run --spec cypress/integration/crispy-signup-page.spec.js",
+	"feeds-tests": "cypress run --spec cypress/integration/crispy-feeds-page.spec.js",
+	"visual-validation": "cypress run --spec cypress/integration/crispy-visual-valid.spec.js",
+	"test": "cypress run"
+}
 ```
 
-
-```bash
-  npm run cypress
-  npm run test
-  npm run home-tests
-  npm run login-tests
-  npm run signup-tests
-  npm run feeds-tests
-```
 
 ### 1)	INTERACTIVELY EXECUTION
 
@@ -62,6 +53,15 @@ Scripts shortcuts have been added at `package.json` file, for executing all test
 ```
 
 Results will be displayed in the console without opening the interactive runner. It will generate though the videos of the execution at `/videos/` folder of the repository.
+
+For running each of the tests suites individually:
+
+```bash
+  npm run home-tests
+  npm run login-tests
+  npm run signup-tests
+  npm run feeds-tests
+```
 
 
 ### REPORTING
