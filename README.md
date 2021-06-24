@@ -16,6 +16,8 @@ For full details SendcloudTestAutomation.pdf file can be checked at repo's root 
 
 ## SOLUTION
 
+### Tests implemented
+
 |   |  |
 | ------- | ------- |
 | Validate default home page | Validate default new feed page |
